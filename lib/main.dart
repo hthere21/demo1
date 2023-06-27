@@ -104,54 +104,52 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text("Patient Age"),
                     ],
                   ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            isListening = !isListening;
-                          });
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: OutlinedButton(
+                      onPressed: () {
+                        setState(() {
+                          isListening = !isListening;
+                        });
 
-                          if (isListening) {
-                            _startListening();
-                          } else {
-                            _speechToText.stop();
-                            _textEditingController.clear();
-                          }
-                        },
-                        style: OutlinedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                              color: Colors.black,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
+                        if (isListening) {
+                          _startListening();
+                        } else {
+                          _speechToText.stop();
+                          _textEditingController.clear();
+                        }
+                      },
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            color: Colors.black,
+                            width: 2.0,
                           ),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              "Dictation ",
-                              style: TextStyle(color: Colors.black),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Dictation ",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          Visibility(
+                            child: Icon(
+                              Icons.mic,
+                              color: Colors.black,
                             ),
-                            Visibility(
-                              child: Icon(
-                                Icons.mic,
-                                color: Colors.black,
-                              ),
-                              visible: !isListening,
+                            visible: !isListening,
+                          ),
+                          Visibility(
+                            child: Icon(
+                              Icons.pause_circle,
+                              color: Colors.red,
                             ),
-                            Visibility(
-                              child: Icon(
-                                Icons.pause_circle,
-                                color: Colors.red,
-                              ),
-                              visible: isListening,
-                            ),
-                          ],
-                        ),
+                            visible: isListening,
+                          ),
+                        ],
                       ),
                     ),
                   )
@@ -186,13 +184,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    child: Expanded(
-                      child: TextField(
-                        maxLines: null,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Cough, chest pain...',
-                        ),
+                    child: TextField(
+                      maxLines: null,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Cough, chest pain...',
                       ),
                     ),
                   ),
@@ -209,13 +205,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    child: Expanded(
-                      child: TextField(
-                        maxLines: null,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Cold...',
-                        ),
+                    child: TextField(
+                      maxLines: null,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Cold...',
                       ),
                     ),
                   ),
@@ -232,13 +226,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    child: Expanded(
-                      child: TextField(
-                        maxLines: null,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Ibuprofen...',
-                        ),
+                    child: TextField(
+                      maxLines: null,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Ibuprofen...',
                       ),
                     ),
                   ),
@@ -261,44 +253,36 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontSize: 22,
                           ),
                         ),
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: OutlinedButton(
-                              onPressed: () {
-                                setState(() {
-                                  _textEditingController.text = '';
-                                  _speechToText.stop();
-                                });
-
-                                // if (isListening) {
-                                //   _startListening();
-                                // } else {
-                                //   _speechToText.stop();
-                                // }
-                              },
-                              style: OutlinedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  side: const BorderSide(
-                                    color: Colors.black,
-                                    width: 100.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(20.0),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: OutlinedButton(
+                            onPressed: () {
+                              setState(() {
+                                _textEditingController.text = '';
+                                _speechToText.stop();
+                              });
+                            },
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                side: const BorderSide(
+                                  color: Colors.black,
+                                  width: 100.0,
                                 ),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    "Summarize",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                  Icon(
-                                    Icons.summarize,
-                                    color: Colors.black,
-                                  ),
-                                ],
-                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  "Summarize",
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                Icon(
+                                  Icons.summarize,
+                                  color: Colors.black,
+                                ),
+                              ],
                             ),
                           ),
                         )
